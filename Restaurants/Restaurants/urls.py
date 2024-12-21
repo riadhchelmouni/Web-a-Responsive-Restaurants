@@ -1,8 +1,8 @@
 """
-URL configuration for Restaurants project.
+URL configuration for Resturant_Project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -22,11 +22,12 @@ from Base_App.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView),
-    path('about/', AboutView),
-    path('menu/', MenuView),
-    path('book_table/', BookTableView),
+    path('', HomeView,name="Home"),
+    path('book_table', BookTableView,name='Book_Table'),
+    path('menu', MenuView,name='Menu'),
+    path('about', AboutView,name='About'),
+    path('feedback', FeedbackView,name='Feedback_Form'),
 ]
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
